@@ -8,6 +8,7 @@ public class DCConfigReader {
     // New Config
     private String token = null;
 
+
     public DCConfigReader(DiscordCore plugin) throws Exception {
         File configFile = new File(plugin.getDataFolder(), "config.properties");
 
