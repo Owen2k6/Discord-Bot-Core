@@ -1,10 +1,5 @@
 package com.johnymuffin.discordcore;
 
-import net.dv8tion.jda.api.interactions.commands.Command;
-import net.dv8tion.jda.api.interactions.commands.build.CommandData;
-import net.dv8tion.jda.api.interactions.commands.build.OptionData;
-import net.dv8tion.jda.api.requests.RestAction;
-import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -12,12 +7,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.config.Configuration;
 
 import java.io.File;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static net.dv8tion.jda.api.interactions.commands.OptionType.STRING;
-import static net.dv8tion.jda.api.interactions.commands.OptionType.USER;
 
 public class DiscordCore extends JavaPlugin implements Listener {
     //Basic Plugin Info
@@ -60,7 +51,7 @@ public class DiscordCore extends JavaPlugin implements Listener {
             }
         }
 
-        if (softToken == null || softToken.equalsIgnoreCase("token") || softToken.isEmpty()) {
+        if(softToken == null || softToken.equalsIgnoreCase("token") || softToken.isEmpty()) {
             plugin.logInfo(Level.WARNING, "Failed to find a Discord token in the config file, shutting down.");
             Bukkit.getServer().getPluginManager().disablePlugin(plugin);
             return;
@@ -76,7 +67,6 @@ public class DiscordCore extends JavaPlugin implements Listener {
             Bukkit.getServer().getPluginManager().disablePlugin(plugin);
             return;
         }
-
     }
 
     public void onDisable() {
